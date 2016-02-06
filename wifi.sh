@@ -24,7 +24,7 @@
 # this is a very common problem.  If once a min change */5 to *
 # once every 2 mins */5 to */2 ...
 #
-# */5 * * * * /usr/local/bin/WiFi_Check
+# */5 * * * * ~/src/edison_wifi/wifi.sh
 #
 ##################################################################
 # Settings
