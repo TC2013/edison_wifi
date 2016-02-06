@@ -1,6 +1,6 @@
  Instructions:
 
- o Install where you want to run it from like /home/edison/src/edison_wifi
+ Install where you want to run it from like /home/edison/src/edison_wifi
  
  cd ~/src
  
@@ -10,9 +10,9 @@
  
  cd edison_wifi
  
- o chmod 0755 /home/edison/src/edison_wifi/wifi.sh
+ chmod 0755 /home/edison/src/edison_wifi/wifi.sh
  
- o Add to crontab using crontab -e
+ Add to crontab using crontab -e
  
  Run Every 5 mins - Seems like ever min is over kill unless
  this is a very common problem.  If once a min change */5 to *
