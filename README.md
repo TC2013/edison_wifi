@@ -3,8 +3,11 @@
  o Install where you want to run it from like /home/edison/src/edison_wifi
  
  cd ~/src
+ 
  mkdir edison_wifi
+ 
  git clone https://github.com/TC2013/edison_wifi
+ 
  cd edison_wifi
  
  o chmod 0755 /home/edison/src/edison_wifi/wifi.sh
