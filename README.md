@@ -4,8 +4,6 @@
  
  cd ~/src
  
- mkdir edison_wifi
- 
  git clone https://github.com/TC2013/edison_wifi
  
  cd edison_wifi
