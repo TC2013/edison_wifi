@@ -16,11 +16,11 @@
  this is a very common problem.  If once a min change */5 to *
  once every 2 mins */5 to */2 ...
 
- */5 * * * * ~/src/edison_wifi/wifi.sh
+ */5 * * * * /home/edison/src/edison_wifi/wifi.sh
  
  YOUR_HOME_NETWORK=ssid_name  #change ssid_name to your primary network you want to use.  This will switch to that network if it is available.
  
- Might need to run the following as sudo crontab -e
+You will need to run the following as sudo crontab -e
  
  YOUR_HOME_NETWORK=ssid_name
  
