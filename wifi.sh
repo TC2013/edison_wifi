@@ -32,7 +32,7 @@
 ##################################################################
 # Settings
 # Where and what you want to call the Lockfile
-lockfile='~/src/edison_wifi/WiFi_Check.pid'
+lockfile=$(eval echo ~${SUDO_USER})'/src/edison_wifi/WiFi_Check.pid'
 # Which Interface do you want to check/fix
 wlan='wlan0'
 pingip=$1
