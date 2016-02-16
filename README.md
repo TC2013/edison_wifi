@@ -10,6 +10,8 @@
  
  chmod 0755 /home/edison/src/edison_wifi/wifi.sh
  
+ Using your editor (nano, vi, etc), change the pingip to be the address of your router (currently line 38)
+ 
  Add to crontab using crontab -e
  
  Run Every 5 mins - Seems like ever min is over kill unless
