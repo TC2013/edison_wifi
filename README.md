@@ -19,7 +19,10 @@
  */5 * * * * /home/edison/src/edison_wifi/wifi.sh
  
  YOUR_HOME_NETWORK=ssid_name  #change ssid_name to your primary network you want to use.  This will switch to that network if it is available.
- 
+
+___________________________________________________________________________________ 
+This final crontab script is meant to automatically switch your pi/edison over to your home network (preferred network) if available. It isn't very reliable, but I'm keeping it in for now in case someone can figure out how to make it work more reliably.
+
 You will need to run the following as sudo crontab -e
  
  YOUR_HOME_NETWORK=ssid_name
