@@ -22,6 +22,10 @@
  
  YOUR_HOME_NETWORK=ssid_name  #change ssid_name to your primary network you want to use.  This will switch to that network if it is available.
 
+The following line is helpful in not having to enter your password to run commands:
+
+sudo visudo and append edison ALL=(ALL) NOPASSWD: ALL at the end
+
 ___________________________________________________________________________________ 
 This final crontab script is meant to automatically switch your pi/edison over to your home network (preferred network) if available. It isn't very reliable, but I'm keeping it in for now in case someone can figure out how to make it work more reliably.
 
@@ -31,4 +35,4 @@ You will need to run the following as sudo crontab -e
  
  */15 * * * * ( (wpa_cli status | grep $YOUR_HOME_NETWORK > /dev/null && echo already on $YOUR_HOME_NETWORK) || (wpa_cli scan > /dev/null && wpa_cli scan_results | egrep $YOUR_HOME_NETWORK > /dev/null && wpa_cli select_network $(wpa_cli list_networks | grep $YOUR_HOME_NETWORK | cut -f 1) && echo switched to $YOUR_HOME_NETWORK && sleep 15 && (for i in $(wpa_cli list_networks | grep DISABLED | cut -f 1); do wpa_cli enable_network $i > /dev/null; done) && echo and re-enabled other networks) ) 2>&1 | logger -t wifi-select
 
-sudo visudo and append edison ALL=(ALL) NOPASSWD: ALL at the end
+
