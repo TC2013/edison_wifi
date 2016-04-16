@@ -24,7 +24,7 @@
 
 The following line is helpful in not having to enter your password to run commands:
 
-sudo visudo and append edison ALL=(ALL) NOPASSWD: ALL at the end
+sudo visudo and append "edison ALL=(ALL) NOPASSWD: ALL" at the end without quotes
 
 ___________________________________________________________________________________ 
 This final crontab script is meant to automatically switch your pi/edison over to your home network (preferred network) if available. It isn't very reliable, but I'm keeping it in for now in case someone can figure out how to make it work more reliably.
