@@ -18,8 +18,8 @@
 #
 # o Install where you want to run it from like /home/edison/src/edison_wifi
 # o chmod +x /home/edison/src/edison_wifi/wifi.sh
+# You may wish to modify line 39 to your desired location.
 # o Add to crontab using sudo crontab -e
-# 
 # Run Every 5 mins - Seems like ever min is over kill unless
 # this is a very common problem.  If once a min change */5 to *
 # once every 2 mins */5 to */2 ...
