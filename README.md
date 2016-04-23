@@ -8,26 +8,25 @@
  
  cd edison_wifi
  
- chmod 0755 /home/edison/src/edison_wifi/wifi.sh
+ chmod +x /home/edison/src/edison_wifi/wifi.sh
  
- Using your editor (nano, vi, etc), change the pingip to be the address of your router (currently line 38)
- 
- Add to crontab using crontab -e
+ Add to crontab using sudo crontab -e
  
  Run Every 5 mins - Seems like ever min is over kill unless
  this is a very common problem.  If once a min change */5 to *
- once every 2 mins */5 to */2 ...
-
- */5 * * * * /home/edison/src/edison_wifi/wifi.sh
+ once every 2 mins */5 to */2 ...  
+ Add the following 2 lines to cron:
+ REMOTE_HOST="google.com" # will be used to test network connectivity
+ */5 * * * * /home/edison/src/edison_wifi/ && ./wifi.sh
  
- YOUR_HOME_NETWORK=ssid_name  #change ssid_name to your primary network you want to use.  This will switch to that network if it is available.
+
 
 The following line is helpful in not having to enter your password to run commands:
 
 sudo visudo and append "edison ALL=(ALL) NOPASSWD: ALL" at the end without quotes
 
 ___________________________________________________________________________________ 
-This final crontab script is meant to automatically switch your pi/edison over to your home network (preferred network) if available. It isn't very reliable, but I'm keeping it in for now in case someone can figure out how to make it work more reliably.
+This final crontab (not sure it works very well) script is meant to automatically switch your pi/edison over to your home network (preferred network) if available. It isn't very reliable, but I'm keeping it in for now in case someone can figure out how to make it work more reliably.
 
 You will need to run the following as sudo crontab -e
  
