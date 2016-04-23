@@ -17,19 +17,22 @@
 # Instructions:
 #
 # o Install where you want to run it from like /home/edison/src/edison_wifi
-# o chmod 0755 /home/edison/src/edison_wifi/wifi.sh
-# o Add to crontab
+# o chmod +x /home/edison/src/edison_wifi/wifi.sh
+# o Add to crontab using sudo crontab -e
 # 
 # Run Every 5 mins - Seems like ever min is over kill unless
 # this is a very common problem.  If once a min change */5 to *
 # once every 2 mins */5 to */2 ...
 #
+# 
+# sudo crontab -e  (to run cron from root) 
 # REMOTE_HOST="google.com" # will be used to test network connectivity
-# YOUR_HOME_NETOWRK=ssid_name  #change ssid_name to your primary network you want to use.  This will switch to that network if it is available.
-# */5 * * * * ~/src/edison_wifi/wifi.sh $REMOTE_HOST
-# sudo crontab -e  (to run cron from root)
+# */5 * * * * ~/src/edison_wifi && ./wifi.sh $REMOTE_HOST
+#The line below is also meant to run in cron and is supposed to look and see if your home network is available then switch to it if it is.  Not sure it works
 # */15 * * * * ( (wpa_cli status | grep $YOUR_HOME_NETWORK > /dev/null && echo already on $YOUR_HOME_NETWORK) || (wpa_cli scan > /dev/null && wpa_cli scan_results | egrep $YOUR_HOME_NETWORK > /dev/null && wpa_cli select_network $(wpa_cli list_networks | grep $YOUR_HOME_NETWORK | cut -f 1) && echo switched to $YOUR_HOME_NETWORK && sleep 15 && (for i in $(wpa_cli list_networks | grep DISABLED | cut -f 1); do wpa_cli enable_network $i > /dev/null; done) && echo and re-enabled other networks) ) 2>&1 | logger -t wifi-select
-##################################################################
+#
+# YOUR_HOME_NETOWRK=ssid_name  #change ssid_name to your primary network you want to use.  This will switch to that network if it is available.
+#################################################################
 # Settings
 # Where and what you want to call the Lockfile
 #lockfile=$(eval echo ~${SUDO_USER})'/src/edison_wifi/WiFi_Check.pid'
