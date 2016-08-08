@@ -15,9 +15,9 @@
  Run Every 5 mins - Seems like ever min is over kill unless
  this is a very common problem.  If once a min change */5 to *
  once every 2 mins */5 to */2 ...  
- Add the following 2 lines to cron:
+ Add the following line to cron:
  
- */5 * * * * /home/edison/src/edison_wifi/ && ./wifi.sh
+ */5 * * * * cd /home/edison/src/edison_wifi/ && ./wifi.sh  #(change directories to wherever you store wifi.sh)
  
 
 
